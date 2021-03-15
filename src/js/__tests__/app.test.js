@@ -17,7 +17,7 @@ const bowman2 = {
   defence: 25,
 };
 
-test('add double unit', () => {
+test('add unit', () => {
   const character = bowman;
   const team = new Team();
   team.add(character);
@@ -31,4 +31,12 @@ test('arr', () => {
   team.add(character1);
   team.add(character2);
   expect(team.toArray()).toEqual([character1, character2]);
+});
+
+test('doubling unit', () => {
+  const character1 = bowman;
+  const character2 = bowman2;
+  const team = new Team();
+  team.addAll(character1, character2, character2);
+  expect(team.members.size).toBe(2);
 });
